@@ -1,0 +1,19 @@
+{
+  "name": "node-login",
+  "version": "0.0.1",
+  "description": "a login example written in nodejs Edit",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Robert-Rino/node-login.git"
+  },
+  "author": "Robert-Rino",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Robert-Rino/node-login/issues"
+  },
+  "homepage": "https://github.com/Robert-Rino/node-login#readme"
+}
