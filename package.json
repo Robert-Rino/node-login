@@ -4,7 +4,7 @@
   "description": "a login example written in nodejs Edit",
   "main": "app.js",
   "scripts": {
-    "test": "npm start"
+    "test": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/Robert-Rino/node-login/issues"
   },
-  "homepage": "https://github.com/Robert-Rino/node-login#readme"
+  "homepage": "https://github.com/Robert-Rino/node-login#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
 }
