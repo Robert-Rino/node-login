@@ -16,3 +16,4 @@ app.post('/api/v1/register', function (req, res) {
 })
 
 app.listen(3000)
+module.exports = app;
