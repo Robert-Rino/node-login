@@ -20,4 +20,11 @@ describe('save user data to fs system', function () {
       .field('email', 'robert@mail.com')
       .expect(200, done)
   })
+  it('it should reture status code 501 for duplicated account', function(done){
+    supertest(app)
+      .post('/api/v1/register')
+      .field('username', 'robert')
+      .field('email', 'robert@mail.com')
+      .expect(501, done)
+  })
 })
