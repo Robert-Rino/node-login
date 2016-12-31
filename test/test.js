@@ -3,6 +3,7 @@ let supertest = require('supertest')
 let should = require('should')
 let app = require('../app')
 
+
 describe('API root route', function () {
   it('should return status code 200', function (done) {
     supertest(app)
@@ -25,6 +26,6 @@ describe('save user data to fs system', function () {
       .post('/api/v1/register')
       .field('username', 'robert')
       .field('email', 'robert@mail.com')
-      .expect(501, done)
+      .expect(501,done)
   })
 })
