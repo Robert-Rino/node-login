@@ -3,14 +3,12 @@ let Model = require('../models/init')
 
 exports.create_account = function (username, email, callback){
   let account = new Model.account ({ username: username, email:email });
-  account.save(function (err) {
-    if (err) return handleError(err);
-    // saved!
-  })
+  let save_account_promise = account.save();
+  return save_account_promise;
 };
 
-exports.login_check = function (username, email){
+exports.register_check = function (username, email){
   let query = Model.account.find({username: username});
-  let promise = query.exec();
-  return promise;
+  let loin_check_promise = query.exec();
+  return loin_check_promise;
 };

@@ -18,22 +18,19 @@ app.get('/api/v1/', function (req, res) {
 })
 
 app.post('/api/v1/register', function (req, res) {
-  // console.log(req.body)
-  // let account = new Model.account({ username: req.body.username, email:req.body.email });
-  // account.save(function (err) {
-  //   if (err) return handleError(err);
-  //   // saved!
-  // })
-  let new_account = account_services.create_account(req.body.username, req.body.email);
-  console.log(new_account);
-  if (new_account instanceof Error){
-    // console.log(new_account);
-    res.sendStatus(400);
-  }
-  else {
-      // console.log(new_account);
-      res.sendStatus(200);
-  }
+  let apply_account = account_services.register_check(req.body.username, req.body.email);
+  apply_account.then(function(doc){
+    if( doc.length >= 1 ) {
+     res.status(400).send('user already exist ! ');
+   }
+   else {
+     let new_account = account_services.create_account(req.body.username, req.body.email);
+     new_account.then(function(doc){
+       console.log(doc);
+       res.sendStatus(200);
+     });
+   }
+  });
 })
 
 // TODO: validate user account
@@ -41,6 +38,7 @@ app.post('/api/v1/register', function (req, res) {
 // });
 
 // TODO: let user log in
+
 app.post('/api/v1/login', function (req, res) {
   let login_account = account_services.login_check(req.body.username, req.body.email);
   login_account.then(function(doc){
