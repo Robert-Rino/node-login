@@ -8,6 +8,7 @@ let Model = require('./models/init')
 let account_services = require('./services/account_services')
 
 let app = express();
+app.set('view engine', 'pug')
 
 mongoose.connect('mongodb://localhost/');
 app.use(bodyParser.json());
@@ -26,7 +27,6 @@ app.post('/api/v1/register', function (req, res) {
    else {
      let new_account = account_services.create_account(req.body.username, req.body.email);
      new_account.then(function(doc){
-       console.log(doc);
        res.sendStatus(200);
      });
    }
@@ -38,17 +38,14 @@ app.post('/api/v1/register', function (req, res) {
 // });
 
 // TODO: let user log in
-
 app.post('/api/v1/login', function (req, res) {
-  let login_account = account_services.login_check(req.body.username, req.body.email);
-  login_account.then(function(doc){
-    if( doc.length >= 0 ) {
-     res.status(401).send('user already exist ! ');
-   }
-   else res.status(200);
-  });
+  console.log('login route');
 })
 
+
+app.get('/app/v1/test_tamplate', function(req, res) {
+  res.render('template_test', { title: 'Hey', message: 'Hello there !' })
+})
 
 
 app.listen(3000)
