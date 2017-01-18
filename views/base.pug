@@ -1,0 +1,28 @@
+html(lang='en')
+  head
+    title Starter Template for Bootstrap
+    // Bootstrap core CSS
+    link(href='http://getbootstrap.com/dist/css/bootstrap.min.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='http://getbootstrap.com/examples/starter-template/starter-template.css', rel='stylesheet')
+  body
+    nav.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          a.navbar-brand(href='#') Project name
+        ul.nav.navbar-nav
+          li.active
+            a(href='#') Home
+          li
+            a(href='#about') About
+          li
+            a(href='#contact') Contact
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='#')
+              span.glyphicon.glyphicon-user Sgin Up
+          li
+            a(href='#')
+              span.glyphicon.glyphicon-log-in Login
+
+    block content
